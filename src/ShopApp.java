@@ -53,6 +53,8 @@ public class ShopApp {
         for (int idx = 0; idx < basket.length; idx++){
             Clothing c = basket[idx];
             total=total+ c.getPrice();
+            total=total+ c.getPrice();
+
         }
 
         System.out.println("total = " + total);
