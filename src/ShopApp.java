@@ -1,48 +1,16 @@
 public class ShopApp {
-    private static double total = 0;
 
     private static int measurement = 3;
 
 
     public static void main(String[] args) {
 
-        Customer customer = new Customer();
-        customer.setSize("s");
-        customer.setName("Pinky");
+        Customer customer = new Customer("Pinky", 3);
         System.out.println(customer.getSize());
 
-        if (measurement == 3) customer.setSize("s");
-        switch (measurement) {
-            case 1:
-            case 2:
-            case 3:
-                customer.setSize("s");
-            break;
-            case 4:
-            case 5:
-            case 6:
-                customer.setSize("m");
-            break;
-            case 7:
-            case 8:
-            case 9:
-                customer.setSize("l");
-            break;
-
-            default:
-                customer.setSize("x");
-
-        }
-
-        Clothing c1 = new Clothing();
-        c1.setPrice(12.33);
-        c1.setType("pant");
-        Clothing c2 = new Clothing();
-        c2.setPrice(100);
-        c2.setType("blouse");
-        Clothing c3 = new Clothing();
-        c3.setPrice(99.99);
-        c3.setType("jacket");
+        Clothing c1 = new Clothing("pant", 12.33 , "s");
+        Clothing c2 = new Clothing("blouse", 8 , "l");
+        Clothing c3 = new Clothing("jacket", 99.99 , "m");
 
         Clothing[] basket = new Clothing[3];
 
@@ -50,13 +18,12 @@ public class ShopApp {
         basket[1] = c2;
         basket[2] = c3;
 
-        for (int idx = 0; idx < basket.length; idx++){
-            Clothing c = basket[idx];
-            total=total+ c.getPrice();
+        customer.addItems(basket);
 
-        }
+        System.out.println("Total=" + customer.getTotalClothingCost());
 
-        System.out.println("total = " + total);
+        System.out.println("minimum price=" + Clothing.MIN_PRICE);
+
     }
 
 }
