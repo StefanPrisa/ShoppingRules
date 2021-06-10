@@ -1,4 +1,4 @@
-public class Clothing {
+public class Clothing implements Comparable <Clothing>  {
     private final String size;
     private String type;
     private double price;
@@ -36,9 +36,15 @@ public class Clothing {
 
     @Override
     public String toString() {
-        return "Clothing{" +
-                "type='" + type + '\'' +
-                ", price=" + price +
-                '}';
+        return ""+ type+" " +size+" " + price;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    @Override
+    public int compareTo(Clothing clothing) {
+        return this.type.compareTo(clothing.type);
     }
 }
